@@ -55,7 +55,7 @@ export class PartsService {
             unitName
           }
         }
-      `, fetchPolicy: "no-cache"
+      `
     })
   }
 
@@ -88,7 +88,31 @@ export class PartsService {
             vendorName
           }
         }
-      `
+      `, fetchPolicy: "no-cache"
+    })
+  }
+
+  editPart(id: number, partName: string, description: string, unitId: number, vendorId: number){
+    return this.apollo.mutate<any>({
+      mutation: gql`
+        mutation($id: Int!, $partName: String!, $$description: String, $unitId: Int!, $vendorId: number)
+        {
+          editPart(id: $id, partName: $partName, description: $$description, unitId: $unitId, vendorId: $vendorId){
+            id
+            partName
+            description
+            unitId
+            vendorId
+          }
+        }
+      `,
+      variables: {
+        id: id,
+        partName: partName,
+        description: description,
+        unitId: unitId,
+        vendorId: vendorId
+      }
     })
   }
 

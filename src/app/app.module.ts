@@ -7,6 +7,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,6 +19,10 @@ import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PartsComponent } from './pages/parts/parts.component';
 import { CreatePartComponent } from './components/create-part/create-part.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { EditPartComponent } from './components/edit-part/edit-part.component';
+
 
 
 @NgModule({
@@ -25,7 +31,8 @@ import { CreatePartComponent } from './components/create-part/create-part.compon
     NavComponent,
     HomeComponent,
     PartsComponent,
-    CreatePartComponent
+    CreatePartComponent,
+    EditPartComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +43,10 @@ import { CreatePartComponent } from './components/create-part/create-part.compon
     MatTableModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule,
     GraphQLModule,
     HttpClientModule
   ],

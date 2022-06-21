@@ -1,1 +1,27 @@
-<p>create-part works!</p>
+<h2 mat-dialog-title>Create New Part</h2>
+<div>
+    <form [formGroup]="formGroup" (ngSubmit)="submitPart()">
+        <mat-form-field>
+            <mat-label>Part Name</mat-label>
+            <input matInput type="text"formControlName="partName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <input matInput type="text"formControlName="description">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Select Unit</mat-label>
+            <mat-select formControlName="unitId">
+                <mat-option *ngFor="let unit of data.units" [value]="unit.id">{{unit.unitName}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Select Default Vendor</mat-label>
+            <mat-select formControlName="vendorId">
+                <mat-option *ngFor="let vendor of data.vendors" [value]="vendor.id">{{vendor.vendorName}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button [disabled]="!formGroup.valid" mat-raised-button type="submit">CREATE</button>
+        <button (click)="cancel()">CANCEL</button>
+    </form>
+</div>

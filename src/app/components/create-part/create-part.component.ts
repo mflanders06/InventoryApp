@@ -14,7 +14,7 @@ export class CreatePartComponent implements OnInit {
 
   formGroup = new FormGroup({
     partName: new FormControl(null, [Validators.required]),
-    desciption: new FormControl(),
+    description: new FormControl(),
     unitId: new FormControl(null, [Validators.required]),
     vendorId: new FormControl()
   })
@@ -28,11 +28,14 @@ export class CreatePartComponent implements OnInit {
     console.log(this.data)
   }
 
+
+
   submitPart(){
     const {value} = this.formGroup
     const newPart: Part = {
       ...value
     }
+    this.dialogRef.close(newPart)
   }
 
   cancel(){
